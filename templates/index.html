@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mental Health Facilities</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"/>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h2>Mental Health Facilities & Services</h2>
+	
+	<label for="category">Select Category:</label>
+	<select id="category"></select>
+	
+	<label for="service">Select Service:</label>
+	<select id="service"></select>
+
+	<div id="map" style="height: 600px;"></div>
+	
+	<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
