@@ -36,7 +36,8 @@ $(document).ready(function () {
             data.forEach(facility => {
                 L.circleMarker([facility.latitude, facility.longitude], {
                     radius: 5,
-                    color: 'blue'
+                    color: 'blue',
+		    opacity: 1.0	
                 }).addTo(map).bindPopup(facility.name);
             });
         });
