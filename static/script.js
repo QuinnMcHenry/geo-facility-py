@@ -1,4 +1,13 @@
-let map = L.map('map').setView([37.0902, -95.7129], 4);
+let map = L.map('map', {
+    center: [37.0902, -95.7129], 
+    zoom: 4,
+    minZoom: 3,  // Restrict zooming out
+    maxBounds: [  // Restrict dragging outside the continental US
+        [5.40, -188.29],  // Southwest corner
+        [101.30, -49.49]  // Northeast corner
+    ]
+});
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 $(document).ready(function () {
@@ -35,11 +44,18 @@ $(document).ready(function () {
 
             data.forEach(facility => {
                 L.circleMarker([facility.latitude, facility.longitude], {
-                    radius: 5,
+                    radius: 3,
                     color: 'blue',
-		    opacity: 1.0	
+                    fillColor: 'blue',
+		    fillOpacity: 1,
+		    weight: 1	
                 }).addTo(map).bindPopup(facility.name);
             });
+
+	    if (data.length > 0) {
+		let bounds = L.latLngBounds(data.map(f => [f.latitude, f.longitude]));
+		map.fitBounds(bounds, { maxZoom: 7 });
+	    }
         });
     });
 });
