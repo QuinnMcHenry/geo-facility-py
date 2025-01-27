@@ -10,9 +10,8 @@ from config import Base
 class Facility(Base):
     __tablename__ = "facilities"
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name1 = Column(String(255))
-    service = Column(String(255))
+    name1 = Column(String, primary_key=True)
+    service = Column(String)
     latitude = Column(Float)
     longitude = Column(Float)
 
