@@ -32,6 +32,34 @@ $(document).ready(function () {
         });
     });
 
+function geocodeAddress(address) {
+    let url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                let lat = parseFloat(data[0].lat);
+                let lon = parseFloat(data[0].lon);
+                map.setView([lat, lon], 10);  // Zoom in to the location
+            } else {
+                alert("Address not found!");
+            }
+        })
+        .catch(error => console.error("Geocoding error:", error));
+}
+
+// When user clicks "Go" button
+$('#findMe').click(() => {
+    let address = $('#addressInput').val();
+    if (address) {
+        geocodeAddress(address);
+    } else {
+        alert("Please enter an address.");
+    }
+});
+
+
     // Load facilities when service changes
     $('#service').change(function () {
         let service = $(this).val();
