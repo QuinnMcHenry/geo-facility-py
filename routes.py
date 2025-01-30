@@ -280,21 +280,21 @@ CATEGORY_DICT = {
 
 @routes.route("/categories", methods=["GET"])
 def get_categories():
-    """Return available categories."""
+    # returns categories from category_dict
     return jsonify(list(CATEGORY_DICT.keys()))
 
 @routes.route("/services/<category>", methods=["GET"])
 def get_services(category):
-    """Return services for a given category."""
+    # returns services from category tuple
     return jsonify(CATEGORY_DICT.get(category, []))
 
 @routes.route("/facilities/<service>", methods=["GET"])
 def get_facilities(service):
-    """Return facilities offering a selected service."""
+    # queries SQL database for facilities WHERE service = service
     session = SessionLocal()
     results = session.query(Facility).filter(Facility.service == service).all()
     session.close()
 
     data = [{"name": f.name1, "latitude": f.latitude, "longitude": f.longitude} for f in results]
-    return jsonify(data)
+    return jsonify(data) # json version of relational data, all columns
 
