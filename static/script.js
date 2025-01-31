@@ -59,7 +59,11 @@ $('#findMe').click(() => {
     }
 });
 
-
+$('#addressInput').keypress((event) => {
+    if (event.which === 13) {
+        $('#findMe').click();
+    }
+});
     // Load facilities when service changes
     $('#service').change(function () {
         let service = $(this).val();

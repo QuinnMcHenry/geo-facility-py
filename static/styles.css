@@ -3,23 +3,28 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     text-align: center;
 }
 
 /* Header */
 h2 {
     color: #007bff;
+    font-family: 'Optima', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Search & Filter Controls */
 div {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 select, input {
     padding: 8px;
+    margin-bottom: 5px;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -52,6 +57,35 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+#info-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-top: 2px solid #ccc;
+}
+
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#scrollTopBtn:hover {
+    background-color: #0056b3;
+}
+
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {

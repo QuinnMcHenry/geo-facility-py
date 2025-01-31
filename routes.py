@@ -15,18 +15,14 @@ routes = Blueprint("routes", __name__)
 CATEGORY_DICT = {
     "Type of Care" : ["Substance use treatment",
                     "Detoxification",
-                    "Transitional housing, halfway house, or sober home",
-                    "Treatment for co-ocurring substance use plus either serious mental health illness in adults/serious emotional disturbance in children"],
+                    "Transitional housing, halfway house, or sober home"],
 
-"Service Setting (e.g., Outpatient, Residential, Inpatient, etc.)" : ["Hospital inpatient/24-hour hospital inpatient",
-                                                    "Outpatient",
-                                                    "Residential/24-hour residential",
+"Service Setting (e.g., Outpatient, Residential, Inpatient, etc.)" : ["Outpatient",
                                                     "Hospital inpatient detoxification",
                                                     "Hospital inpatient treatment",
                                                     "Outpatient detoxification",
                                                     "Outpatient day treatment or partial hospitalization",
                                                     "Intensive outpatient treatment", 
-                                                    "Outpatient methadone/buprenorphine or naltrexone treatment",
                                                     "Regular outpatient treatment",
                                                     "Residential detoxification",
                                                     "Long-term residential",
@@ -48,8 +44,7 @@ CATEGORY_DICT = {
 
 "Type of Alcohol Use Disorder Treatment" : ["Does not treat alcohol use disorder",
                             "Does not use medication assisted treatment for alcohol use disorder",
-                            "Accepts clients using medication assisted treatment for alcohol use disorder but prescribed elsewhere",
-                            "This facility administers/prescribes medication for alcohol use disorder"],
+                            "Accepts clients using medication assisted treatment for alcohol use disorder but prescribed elsewhere"],
 
 
 "External Source of Medications Used for Alcohol Use Disorder Treatment" : ["In-network prescribing entity",
@@ -67,10 +62,8 @@ CATEGORY_DICT = {
               "Prescribes buprenorphine",
               "Prescribes naltrexone",
               "Relapse prevention with naltrexone",
-              "Use methadone/buprenorphine for pain management or emergency dosing",
               "Accepts clients using MAT but prescribed elsewhere",
               "Does not use MAT for opioid use disorders",
-              "Lofexidine/clonidine detoxification",
               "Does not treat opioid use disorders"],
 
 
@@ -89,21 +82,18 @@ CATEGORY_DICT = {
        "Clonidine",
        "Medication for mental disorders",
        "Medications for pre-exposure to prophylaxis",
-       "Nicotine replacement",
-       "Non-nicotine smoking/tobacco cessation"
+       "Nicotine replacement"
 ],
 
 
 "Treatment Approaches" : ["Anger management",
           "Brief intervention",
           "Cognitive behavioral therapy",
-          "Contingency management/motivational incentives",
           "Community reinforcement plus vouchers",
           "Motivational interviewing",
           "Matrix Model",
           "Relapse prevention",
           "Substance use disorder counseling",
-          "Telemedicine/telehealth therapy",
           "Trauma-related counseling",
           "12-step facilitation"
 ],
@@ -120,64 +110,8 @@ CATEGORY_DICT = {
                                 "Federal Government"],
 
 
-"License/Certification/Accreditation" : ["State Substance use treatment agency",
-                         "State mental health department",
-                         "State department of health",
-                         "Commission on Accreditation of Rehabilitation Facilities (CARF)",
-                         "Council on Accreditation (COA)",
-                         "Healthcare Facilities Accreditation Program (HFAP)",
-                         "Hospital licensing authority",
-                         "The Joint Commission",
-                         "National Committee for Quality Assurance (NCQA)",
-                         "Federally Qualified Health Center",
-                         "SAMHSA certification for opioid treatment program (OTP)",
-                         "Drug Enforcement Agency (DEA)"],
-
-
-"Payment/Insurance/Funding Accepted" : ["Federal, or any government funding for substance use treatment programs",
-                        "IHS/Tribal/Urban (ITU) funds",
-                        "Medicare",
-                        "Medicaid",
-                        "Federal military insurance (e.g., TRICARE)",
-                        "No payment accepted",
-                        "Private health insurance",
-                        "Cash or self-payment",
-                        "State-financed health insurance plan other than Medicaid",
-                        "SAMHSA funding/block grants"],
-
-
 "Payment Assistance Available" : ["Payment assistance (check with facility for details)",
                   "Sliding fee scale (fee is based on income and other factors)"],
-
-
-"Special Programs/Groups Offered" : ["Adolescents",
-                     "Young adults",
-                     "Adult women",
-                     "Pregnant/postpartum women",
-                     "Adult men",
-                     "Seniors or older adults",
-                     "Lesbian, gay, bisexual, transgender, or queer/questioning (LGBTQ)",
-                     "Veterans",
-                     "Active duty military",
-                     "Members of military families",
-                     "Criminal justice (other than DUI/DWI)/Forensic clients",
-                     "Clients with co-occurring mental and substance use disorders",
-                     "Clients with co-occurring pain and substance use disorders",
-                     "Clients with HIV or AIDS",
-                     "Clients who have experienced sexual abuse",
-                     "Clients who have experienced intimate partner violence, domestic violence",
-                     "Clients who have experienced trauma"],
-
-
-"Assessment/Pre-treatment" : ["Comprehensive mental health assessment",
-              "Comprehensive substance use assessment",
-              "Interim services for clients",
-              "Outreach to persons in the community",
-              "Complete medical history/physical exam",
-              "Screening for tobacco use",
-              "Screening for substance use",
-              "Screening for mental disorders",
-              "Professional interventionist/educational consultant"],
 
 
 "Testing" : ["Breathalyzer or blood alcohol testing",
@@ -191,7 +125,7 @@ CATEGORY_DICT = {
 "Testing for Hepatitis C (HCV)"],
 
 
-"Transitional Services" : ["Aftercare/continuing care",
+"Transitional Services" : [
            "Discharge Planning",
            "Naloxone and overdose education",
            "Outcome follow-up after discharge"],
@@ -201,7 +135,6 @@ CATEGORY_DICT = {
                "Housing services",
                "Assistance with obtaining social services",
                "Recovery coach",
-               "Mentoring/peer support",
                "Employment counseling or training"],
 
 
@@ -219,13 +152,10 @@ CATEGORY_DICT = {
 
 "Education and Counseling Services" : ["HIV or AIDS education, counseling, or support",
                        "Hepatitis education, counseling, or support",
-                       "Health education services other than HIV/AIDS or hepatitis",
                        "Substance use disorder education",
-                       "Smoking/vaping/tobacco cessation counseling",
                        "Individual counseling",
                        "Group counseling",
                        "Family counseling",
-                       "Marital/couples counseling",
                        "Vocational training or educational support (for example, high school coursework, GED preparation, etc.)"],
 
 
@@ -239,7 +169,6 @@ CATEGORY_DICT = {
 
 
 "Age Groups Accepted" : ["Adults",
-         "Children/Adolescents",
          "Seniors",
          "Young adults"],
 
@@ -248,8 +177,7 @@ CATEGORY_DICT = {
      "Male"],
 
 
-"Exclusive Services" : ["Specially designed program for DUI/DWI clients",
-        "Serves only DUI/DWI clients",
+"Exclusive Services" : [
         "Alcohol use disorder clients only",
         "Opioid use disorder clients only"],
 
