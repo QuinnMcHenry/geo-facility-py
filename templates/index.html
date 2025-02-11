@@ -10,10 +10,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
     <div class="container">
 	<h2><b>Treatment Facility Search</b></h2>
         <p><b> Select a category and service to view all facilities that provide your query. Click on any marker to get the name of the selected facility. Click, drag, or zoom on the map to navigate to an area of your choosing. Alternatively, enter an address or city in the search bar below the map to focus on the selected area.</b></p>
     </div>
+
 <div style="display: flex; justify-content: center; margin-bottom: 10px;">
         <label for="category" style="margin-right: 5px;">Select Category:</label>
         <select id="category"></select>
@@ -21,6 +23,16 @@
         <label for="service" style="margin-left: 15px; margin-right: 5px;">Select Service:</label>
         <select id="service"></select>
     </div>
+
+    <div id="search-container" style="display: none; text-align: center; margin-bottom: 10px;">
+        <input type="text" id="facilitySearch" placeholder="Search for a facility..." style="width: 80%; padding: 8px;">
+        <ul id="searchResults" style="list-style: none; padding: 0; max-height: 150px; overflow-y: auto; background: white; border: 1px solid #ccc; display: none;"></ul>
+    </div>
+
+    <div id="facility-search-container">
+        <input type="text" id="facilityInput" placeholder="Search for a facility">
+        <div id="facilityResults"></div>
+    </div>    
 
     <div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
         <div id="map" style="width: 80%; max-width: 800px; height: 500px; border: 2px solid #ccc; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);"></div>
@@ -32,11 +44,13 @@
     <input type="text" id="addressInput" placeholder="Enter an address or city">
     <button id="findMe">Go</button>
 </div>
+
 <div id="info-section">
     <div id="info-left">
         <img src="{{ url_for('static', filename='images/Chaminade-Seal.png') }}" alt="Logo">
 
     </div>
+
     <div id="info-right">
     <h2><b>About This App</b></h2>
     <br>
@@ -50,6 +64,7 @@ The goal of this project is to provide a unique tool for searching and finding s
 <br>
 
     </div>
+
 </div>
 </body>
 </html>

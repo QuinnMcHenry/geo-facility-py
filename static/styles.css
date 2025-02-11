@@ -35,11 +35,34 @@ select, input {
     white-space: nowrap;
 }
 
-#search-container {
-    margin-bottom: 10px;
+#facility-search-container {
+    position: relative; 
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column; /* Stack input and results */
+    align-items: center; /* Center contents */
+    width: 100%; 
+    max-width: 300px; 
+    margin: 0 auto; 
+}
+
+#facilityResults {
+    position: absolute;
+    top: 100%; /* Positions it right below the input field */
+    left: 0;
+    width: 100%; /* Match input field width */
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 8px 12px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#facilityResults div:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
 }
 
 

@@ -226,3 +226,17 @@ def get_facilities(service):
     data = [{"name": f.name1, "latitude": f.latitude, "longitude": f.longitude} for f in results]
     return jsonify(data) # json version of relational data, all columns
 
+@routes.route("/facility_search", methods=["GET"])
+def facility_search():
+    """Return all facility names for search suggestions."""
+    session = SessionLocal()
+    results = session.query(Facility.name1, Facility.latitude, Facility.longitude, Facility.service).all()
+    session.close()
+
+    data = []
+    for facility in results:
+        name, lat, lon, service = facility
+        if name:  # Ensure no empty names
+            data.append({"name": name, "latitude": lat, "longitude": lon, "services": service})
+
+    return jsonify(data)

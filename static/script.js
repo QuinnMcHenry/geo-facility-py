@@ -49,35 +49,46 @@ function geocodeAddress(address) {
         .catch(error => console.error("Geocoding error:", error));
 }
 
-var routing = new L.Routing({
-    position: 'topright'
-    ,routing: {
-      router: myRouterFunction
+let facilities = [];
+
+// Fetch all facilities for search
+$.getJSON('/facility_search', function (data) {
+    facilities = data;
+});
+
+// Search functionality
+$('#facilityInput').on('input', function () {
+    let query = $(this).val().toLowerCase();
+    let resultsDiv = $('#facilityResults');
+    resultsDiv.empty(); // Clear previous results
+
+    if (query.length > 1) {
+        let seenFacilities = new Set();
+        let matches = facilities.filter(facility =>  {
+            if (facility.name.toLowerCase().includes(query) && !seenFacilities.has(facility.name)) {
+                seenFacilities.add(facility.name);
+                return true;
+            }
+            return false;
+        });
+
+        matches.forEach(facility => {
+            let resultItem = $('<div class="facility-item"></div>')
+                .text(facility.name)
+                .click(() => {
+                    map.setView([facility.latitude, facility.longitude], 10);  // Zoom to facility
+                    L.popup()
+                        .setLatLng([facility.latitude, facility.longitude])
+                        .setContent(`<b>${facility.name}</b>`)
+                        .openOn(map);
+                    resultsDiv.empty();  // Clear search results
+                    $('#facilityInput').val('');  // Reset input field
+                });
+            resultsDiv.append(resultItem);
+        });
     }
-    ,tooltips: {
-      waypoint: 'Waypoint. Drag to move; Click to remove.',
-      segment: 'Drag to create a new waypoint'
-    }
-    ,styles: {     // see http://leafletjs.com/reference.html#polyline-options
-      trailer: {}  // drawing line
-      ,track: {}   // calculated route result
-      ,nodata: {}  // line when no result (error)
-    }
-    ,snapping: {
-      layers: [mySnappingLayer]
-      ,sensitivity: 15
-      ,vertexonly: false
-    }
-    ,shortcut: {
-      draw: {
-        enable: 68    // 'd'
-        ,disable: 81  // 'q'
-      }
-    }
-  });
-  map.addControl(routing);
-  routing.draw(true);
-  routing.snapping(true);
+});
+
 
 // address finder
 $('#findMe').click(() => {
