@@ -1,26 +1,26 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     margin: 0;
     padding: 20px;
     text-align: center;
 }
 
+.container {
+    max-width: 900px;
+    margin: auto;
+}
 
 h2 {
     color: #007bff;
     font-family: 'Optima', sans-serif;
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-
-div {
-    margin-bottom: 30px;
-}
 
 select, input {
     padding: 8px;
@@ -35,17 +35,11 @@ select, input {
     white-space: nowrap;
 }
 
-button {
-    padding: 8px 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #218838;
+#search-container {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 
@@ -59,31 +53,34 @@ button:hover {
 }
 
 #info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
     padding: 40px;
-    text-align: center;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     border-top: 2px solid #ccc;
+    text-align: left;
 }
 
 
-
-#scrollTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    font-size: 14px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+#info-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#scrollTopBtn:hover {
-    background-color: #0056b3;
+#info-left img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#info-right {
+    flex: 2;
+    padding-left: 30px;
 }
 
 
@@ -91,6 +88,15 @@ button:hover {
 @media screen and (max-width: 768px) {
     #map {
         width: 90%;
+    }
+
+    #info-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #info-right {
+        padding-left: 0;
     }
 }
 

@@ -49,6 +49,36 @@ function geocodeAddress(address) {
         .catch(error => console.error("Geocoding error:", error));
 }
 
+var routing = new L.Routing({
+    position: 'topright'
+    ,routing: {
+      router: myRouterFunction
+    }
+    ,tooltips: {
+      waypoint: 'Waypoint. Drag to move; Click to remove.',
+      segment: 'Drag to create a new waypoint'
+    }
+    ,styles: {     // see http://leafletjs.com/reference.html#polyline-options
+      trailer: {}  // drawing line
+      ,track: {}   // calculated route result
+      ,nodata: {}  // line when no result (error)
+    }
+    ,snapping: {
+      layers: [mySnappingLayer]
+      ,sensitivity: 15
+      ,vertexonly: false
+    }
+    ,shortcut: {
+      draw: {
+        enable: 68    // 'd'
+        ,disable: 81  // 'q'
+      }
+    }
+  });
+  map.addControl(routing);
+  routing.draw(true);
+  routing.snapping(true);
+
 // address finder
 $('#findMe').click(() => {
     let address = $('#addressInput').val();

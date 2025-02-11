@@ -10,9 +10,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    <div class="container">
 	<h2><b>Treatment Facility Search</b></h2>
         <p><b> Select a category and service to view all facilities that provide your query. Click on any marker to get the name of the selected facility. Click, drag, or zoom on the map to navigate to an area of your choosing. Alternatively, enter an address or city in the search bar below the map to focus on the selected area.</b></p>
-    
+    </div>
 <div style="display: flex; justify-content: center; margin-bottom: 10px;">
         <label for="category" style="margin-right: 5px;">Select Category:</label>
         <select id="category"></select>
@@ -32,15 +33,24 @@
     <button id="findMe">Go</button>
 </div>
 <div id="info-section">
+    <div id="info-left">
+        <img src="{{ url_for('static', filename='images/Chaminade-Seal.png') }}" alt="Logo">
+
+    </div>
+    <div id="info-right">
     <h2><b>About This App</b></h2>
+    <br>
     <p>This map interface displays all facilites listed on <a href="https://www.samhsa.gov/data/report/national-directory-of-drug-and-alcohol-abuse-treatment-facilities ">SAMHSA's 2022 National Directory of Drug and Alcohol Abuse Treatment Facilities</a>. It is a listing of federal, state, local, and private facilities that are licensed, certified, or otherwise approved for inclusion in the Directory by their <b>State Substance Abuse Agencies</b>, and those facilities that responded to the 2021 National Substance Use and Mental Health Services Survey. <br><br>
+        <p>This project is a full stack implementation of the <a href="https://github.com/NSF-ALL-SPICE-Alliance/geo-facility-ml">Geospatial Analysis Project</a> completed as part of a research experience for the NSF's <a href="https://www.nsfspicealliance.org">All-SPICE Alliance.</a></p>
+The goal of this project is to provide a unique tool for searching and finding specific treatments, services, or facilities, as well as to educate and provide additional information on the facilities themselves and the geospatial distribution of treatment centers in the United States.</p>
+<br>
+<br>
+<br>
+<h2><b>More tools</b></h2>
+<br>
 
-The goal of this project is to provide a unique tool for searching and finding specific treatments, services, or facilites, as well as to educate and provide additional information on the facilities themselves and the geospatial distribution of treatment centers in the United States.</p>
+    </div>
 </div>
-
-<button id="scrollTopBtn"> ⬆ Return to Top</button>
-
-
 </body>
 </html>
 
