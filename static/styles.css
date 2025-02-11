@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
@@ -7,7 +7,7 @@ body {
     text-align: center;
 }
 
-/* Header */
+
 h2 {
     color: #007bff;
     font-family: 'Optima', sans-serif;
@@ -17,7 +17,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Search & Filter Controls */
+
 div {
     margin-bottom: 30px;
 }
@@ -48,7 +48,7 @@ button:hover {
     background-color: #218838;
 }
 
-/* Map Container */
+
 #map {
     width: 80%;
     max-width: 800px;
@@ -66,7 +66,7 @@ button:hover {
 }
 
 
-/* Scroll to Top Button */
+
 #scrollTopBtn {
     display: none;
     position: fixed;

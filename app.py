@@ -8,7 +8,7 @@ from flask_cors import CORS
 from routes import routes
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for API access
+CORS(app)  
 app.register_blueprint(routes)
 
 @app.route("/")

@@ -1,8 +1,8 @@
 let map = L.map('map', {
     center: [37.0902, -95.7129], 
     zoom: 4,
-    minZoom: 3,  // Restrict zooming out
-    maxBounds: [  // Restrict dragging outside the continental US
+    minZoom: 3,  // zoom limit 
+    maxBounds: [  // drag limit
         [5.40, -188.29],  // Southwest corner
         [101.30, -49.49]  // Northeast corner
     ]
@@ -20,7 +20,7 @@ $(document).ready(function () {
         });
     });
 
-    // Load services when category changes
+    // get associated services when category changes
     $('#category').change(function () {
         let category = $(this).val();
         $('#service').empty().append('<option>Select a service</option>');
@@ -49,7 +49,7 @@ function geocodeAddress(address) {
         .catch(error => console.error("Geocoding error:", error));
 }
 
-// When user clicks "Go" button
+// address finder
 $('#findMe').click(() => {
     let address = $('#addressInput').val();
     if (address) {
@@ -64,13 +64,13 @@ $('#addressInput').keypress((event) => {
         $('#findMe').click();
     }
 });
-    // Load facilities when service changes
+    // change facilities on new service
     $('#service').change(function () {
-        let service = $(this).val();
+        let service = $(this).val(); // service name str
         $.getJSON(`/facilities/${service}`, function (data) {
             map.eachLayer(layer => {
                 if (layer instanceof L.CircleMarker) {
-                    map.removeLayer(layer);
+                    map.removeLayer(layer); // if layer has markers, remove them
                 }
             });
 
