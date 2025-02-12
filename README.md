@@ -3,5 +3,11 @@
 #TO-DO:
 ## - website popup on facility click
 ## - 'get directions'
-## - search for facility by name - then search that facility for services - autocomplete
+## search for services in one facility
 ## - UI
+
+#DONE:
+## - search by facility name
+## - address finder
+## - 
+

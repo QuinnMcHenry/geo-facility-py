@@ -3,15 +3,15 @@ let map = L.map('map', {
     zoom: 4,
     minZoom: 3,  // zoom limit 
     maxBounds: [  // drag limit
-        [5.40, -188.29],  // Southwest corner
-        [101.30, -49.49]  // Northeast corner
+        [5.40, -188.29],  // southwest corner
+        [101.30, -49.49]  // northeast corner
     ]
 });
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 $(document).ready(function () {
-    // Load categories
+    // categories
     $.getJSON('/categories', function (data) {
         let categoryDropdown = $('#category');
         categoryDropdown.append('<option>Select a category</option>');
@@ -41,7 +41,7 @@ function geocodeAddress(address) {
             if (data.length > 0) {
                 let lat = parseFloat(data[0].lat);
                 let lon = parseFloat(data[0].lon);
-                map.setView([lat, lon], 10);  // Zoom in to the location
+                map.setView([lat, lon], 10);  // zoom to address coords
             } else {
                 alert("Address not found!");
             }
@@ -51,12 +51,12 @@ function geocodeAddress(address) {
 
 let facilities = [];
 
-// Fetch all facilities for search
+// return all unique facilities  (slow)
 $.getJSON('/facility_search', function (data) {
     facilities = data;
 });
 
-// Search functionality
+// search with autocomplete (includes)
 $('#facilityInput').on('input', function () {
     let query = $(this).val().toLowerCase();
     let resultsDiv = $('#facilityResults');
@@ -76,16 +76,22 @@ $('#facilityInput').on('input', function () {
             let resultItem = $('<div class="facility-item"></div>')
                 .text(facility.name)
                 .click(() => {
-                    map.setView([facility.latitude, facility.longitude], 10);  // Zoom to facility
+                    map.setView([facility.latitude, facility.longitude], 10);  // zoom to search
                     L.popup()
                         .setLatLng([facility.latitude, facility.longitude])
                         .setContent(`<b>${facility.name}</b>`)
                         .openOn(map);
-                    resultsDiv.empty();  // Clear search results
-                    $('#facilityInput').val('');  // Reset input field
+                    resultsDiv.empty();  // clear results after search
+                    $('#facilityInput').val('');  // clear input after search
                 });
             resultsDiv.append(resultItem);
         });
+    }
+});
+
+document.getElementById("facilityResults").addEventListener("click", function (event) {
+    if (event.target.classList.contains("facility-item")) {
+        document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "center" });
     }
 });
 

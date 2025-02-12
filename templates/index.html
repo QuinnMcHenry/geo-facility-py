@@ -27,12 +27,7 @@
     <div id="search-container" style="display: none; text-align: center; margin-bottom: 10px;">
         <input type="text" id="facilitySearch" placeholder="Search for a facility..." style="width: 80%; padding: 8px;">
         <ul id="searchResults" style="list-style: none; padding: 0; max-height: 150px; overflow-y: auto; background: white; border: 1px solid #ccc; display: none;"></ul>
-    </div>
-
-    <div id="facility-search-container">
-        <input type="text" id="facilityInput" placeholder="Search for a facility">
-        <div id="facilityResults"></div>
-    </div>    
+    </div>  
 
     <div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
         <div id="map" style="width: 80%; max-width: 800px; height: 500px; border: 2px solid #ccc; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);"></div>
@@ -52,15 +47,20 @@
     </div>
 
     <div id="info-right">
-    <h2><b>About This App</b></h2>
-    <br>
+    <h2><b>About</b></h2>
     <p>This map interface displays all facilites listed on <a href="https://www.samhsa.gov/data/report/national-directory-of-drug-and-alcohol-abuse-treatment-facilities ">SAMHSA's 2022 National Directory of Drug and Alcohol Abuse Treatment Facilities</a>. It is a listing of federal, state, local, and private facilities that are licensed, certified, or otherwise approved for inclusion in the Directory by their <b>State Substance Abuse Agencies</b>, and those facilities that responded to the 2021 National Substance Use and Mental Health Services Survey. <br><br>
         <p>This project is a full stack implementation of the <a href="https://github.com/NSF-ALL-SPICE-Alliance/geo-facility-ml">Geospatial Analysis Project</a> completed as part of a research experience for the NSF's <a href="https://www.nsfspicealliance.org">All-SPICE Alliance.</a></p>
 The goal of this project is to provide a unique tool for searching and finding specific treatments, services, or facilities, as well as to educate and provide additional information on the facilities themselves and the geospatial distribution of treatment centers in the United States.</p>
 <br>
-<br>
-<br>
 <h2><b>More tools</b></h2>
+<p>Use the search function to locate a specific facility by name. <b>If no service is selected, or the chosen facility does not provide the currently selected service, you will not see a blue facility marker.</b></p>
+<div id="facility-search-container">
+    <input type="text" id="facilityInput" placeholder="Search for a facility">
+    <div id="facilityResults"></div>
+</div>  
+<br>
+<br>
+<br>
 <br>
 
     </div>
