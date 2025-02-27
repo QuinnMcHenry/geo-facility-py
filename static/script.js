@@ -96,6 +96,8 @@ document.getElementById("facilityResults").addEventListener("click", function (e
 });
 
 
+
+
 // address finder
 $('#findMe').click(() => {
     let address = $('#addressInput').val();
