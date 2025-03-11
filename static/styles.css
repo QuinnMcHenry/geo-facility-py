@@ -1,29 +1,70 @@
 body {
-    background-color: #1e1e1e; /* Dark charcoal grey */
-    color: #ffffff; /* White text for readability */
-    text-align: center; /* Ensures content remains centered */
+    background-color: #1e1e1e; 
+    color: #ffffff; 
+    text-align: center; 
+}
+
+nav {
+    background-color: #4da8da;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.content {
+    padding-top: 70px; /* Prevents content from being hidden under the fixed navbar */
+}
+
+h1 {
+    color: #4da8da; 
+    font-family: 'Inter', sans-serif;
+    font-size: 58px;
+    font-weight: 150;
+    margin-bottom: 20px;
 }
 
 
 h2 {
-    color: #4da8da; /* Light blue for contrast */
+    color: #4da8da; 
+    font-family: 'Inter', sans-serif;
     font-size: 40px;
-    font-family: 'Roboto Slab', serif;
-    font-weight: bold;
+    font-weight: 100;
     margin-bottom: 20px;
 }
 
 select, input {
-    background-color: #333333; /* Darker input fields */
-    color: #ffffff; /* White text */
-    border: 1px solid #555555; /* Subtle border */
+    background-color: #333333; 
+    color: #ffffff; 
+    border: 1px solid #555555; 
 }
 
 #facility-search-container {
     position: relative; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center contents */
+    align-items: center; 
     width: 100%; 
     gap: 10px;
     max-width: 300px; 
@@ -34,32 +75,29 @@ select, input {
 #address-search-container {
     margin-top: 20px;
     margin-bottom: 20px;
-    gap: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
+    gap: 10px;
+    flex-wrap: wrap; 
 }
 
 #addressInput {
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    margin-left: 620px;
-    margin-right: -600px;
-   
+    width: 200px; 
+    padding: 5px;
 }
 
 #facilityResults {
-    background: #333333; /* Dark background */
-    color: #ffffff; /* White text */
+    background: #333333; 
+    color: #ffffff;
     border: 1px solid #555555;
-    margin: 0 auto; /* Keeps the div centered */
+    margin: 0 auto; 
     max-height: 300px;
     overflow-y: auto;
 }
 
 #facilityResults div:hover {
-    background-color: #555555; /* Slightly lighter grey on hover */
+    background-color: #555555; 
 }
 
 #map-section {
@@ -96,7 +134,7 @@ select, input {
 }
 
 #map-right > div {
-    width: 100%; /* Make dropdowns take full width of container */
+    width: 100%;
 }
 
 #map-right select {
@@ -108,7 +146,7 @@ select, input {
 
 #map {
     border: 2px solid #555555;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1); /* Softer shadow */
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1); 
     display: block;
     width: 100%; 
     height: 400px; 
@@ -119,42 +157,61 @@ select, input {
 }
 
 #map:hover {
-    transform: scale(1.1); /* Enlarges the map */
+    transform: scale(1.1); 
 }
 
 #map-right div:first-child {
-    align-self: flex-start; /* Align dropdowns to the top */
+    align-self: flex-start; 
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-
+#welcome-section img {
+    max-width: 150px;  
+    height: auto;
+    border-radius: 5px; 
+    padding: 10px;
+}
 #info-section {
     margin-top: 40px;
-    background-color: #1e1e1e; /* Darker section background */
+    background-color: #1e1e1e; 
     border-top: 2px solid #ffffff;
-    text-align: center; /* Ensures content inside remains centered */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center; 
     padding: 20px;
+    color: #ffffff;
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+
+}
+
+
+#info-container p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+
+#info-left p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+img:hover {
+    transform: scale(1.1)
 }
 
 #findMe {
-    background-color: #4da8da; /* Light blue buttons */
+    background-color: #4da8da; 
     color: #ffffff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 10px auto; /* Ensures buttons are centered */
-    display: block;
+    padding: 5px 10px;
 }
 
 button:hover {
-    background-color: #62b4e9; /* Slightly brighter on hover */
+    background-color: #62b4e9; 
 }
 
 @media screen and (max-width: 768px) {

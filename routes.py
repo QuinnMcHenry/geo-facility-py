@@ -4,7 +4,7 @@
 # In[ ]:
 
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, render_template
 from config import SessionLocal
 from models import Facility
 import pandas as pd
@@ -240,3 +240,10 @@ def facility_search():
             data.append({"name": name, "latitude": lat, "longitude": lon, "services": service})
 
     return jsonify(data)
+
+
+@routes.route("/")
+def main():
+    """render main"""
+    return render_template("index.html")
+
