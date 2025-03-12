@@ -112,13 +112,16 @@ select, input {
 }
 
 #facilityResults {
+    position: absolute;
     background: #333333; 
     color: #ffffff;
     border: 1px solid #555555;
-    margin: 0 auto; 
+    margin-top: 20px;
     max-height: 300px;
     overflow-y: auto;
 }
+
+
 
 #facilityResults div:hover {
     background-color: #555555; 
@@ -139,7 +142,7 @@ select, input {
 
 #map-left {
     flex: 2;
-    display: flex;
+    display: inline-block;
     justify-content: center;
     align-items: center;
     min-width: 0;
@@ -177,6 +180,7 @@ select, input {
     border: 2px solid #ccc; 
     border-radius: 10px; 
     transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
+    margin-bottom: 30px;
 
 }
 
@@ -239,6 +243,7 @@ img:hover {
     background-color: #4da8da; 
     color: #ffffff;
     padding: 5px 10px;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
