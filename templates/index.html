@@ -51,6 +51,7 @@
         <div id="map-left">
             <div id="map"></div>
             <button id="getDirectionsBtn" style="display: none;">Get Directions</button>
+            <div id="facilityName"></div>
         </div>
         <div id="map-right">
             <div id="map-right">
@@ -66,8 +67,10 @@
                     <input type="text" id="facilityInput" placeholder="Search for a facility">
                     <div id="facilityResults"></div>
                 </div> 
-                <p><b> Select a category and service to view all facilities that match your query. Click on any marker to get the name of the selected facility. Click, drag, or zoom on the map to navigate to an area of your choosing. Alternatively, enter an address or city in the search bar below the map to focus on the selected area.</b></p>
-                <p>Use the search function to locate a specific facility by name. <b>Please note: If no service is selected, or the chosen facility does not provide the currently selected service, you will not see a blue facility marker. However, the map will still focus on the specified area.</b></p> 
+                <p> Select a category and service to view all facilities that match your query. Click on any marker to get the name of the selected facility. Click, drag, or zoom on the map to navigate to an area of your choosing.</p>
+                <p>Once you've selected a service, use the search function above to locate a specific facility by name.</p>
+                <p>You can also use the address search function to zoom to a location of your choosing.</p>
+                <p>If a facility is selected, you can use the <b>Get Directions</b> button to be redirected to Google Maps.</p>
         </div>
     </div>
      <script src="{{ url_for('static', filename='script.js') }}"></script>

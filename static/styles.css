@@ -4,38 +4,6 @@ body {
     text-align: center; 
 }
 
-nav {
-    background-color: #4da8da;
-    padding: 15px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.content {
-    padding-top: 70px; /* Prevents content from being hidden under the fixed navbar */
-}
 
 h1 {
     position: relative;
@@ -187,6 +155,7 @@ a:hover {
 }
 
 
+
 #map {
     border: 2px solid #555555;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1); 
@@ -217,6 +186,7 @@ a:hover {
     border-radius: 5px; 
     padding: 30px;
 }
+
 #info-section {
     margin-top: 40px;
     background-color: #1e1e1e; 
@@ -233,8 +203,8 @@ a:hover {
 }
 
 #map-right p {
-    margin-bottom: 15px;
-    line-height: 1.5;
+    margin-bottom: -10px;
+    line-height: 1.2;
     font-family: 'Inter', sans-serif;
     font-weight: 100;
 }
@@ -246,7 +216,7 @@ a:hover {
 }
 
 img:hover {
-    transform: scale(1.1)
+    animation: shimmer 1s linear infinite;
 }
 
 #findMe {
@@ -259,7 +229,13 @@ img:hover {
     background-color: #4da8da; 
     color: #ffffff;
     padding: 5px 10px;
-    margin: 0 auto;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#facilityName {
+    position: relative;
+    font-family: 'Inter', sans-serif;
 }
 
 #credit-section {
@@ -279,12 +255,12 @@ img:hover {
 }
 
 #credit-section-left {
-    margin-left: 20px; /* Small padding from the edge */
+    margin-left: 20px;
 }
 
 #credit-section-right {
-    margin-right: 40px; /* Small padding from the edge */
-    text-align: right; /* Align text to the right */
+    margin-right: 40px; 
+    text-align: right; 
 }
 
 #credit-section p {
