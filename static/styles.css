@@ -38,12 +38,32 @@ nav ul li a {
 }
 
 h1 {
-    color: #4da8da; 
+    position: relative;
     font-family: 'Inter', sans-serif;
-    font-size: 58px;
-    font-weight: 150;
-    margin-bottom: 20px;
-}
+    font-size: 80px;
+    font-weight: 200;
+    margin-bottom: 80px;
+    /* Create a gradient with a light band */
+    background: linear-gradient(90deg, 
+      #4da8da 40%, 
+      #ffffff 50%, 
+      #4da8da 60%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+  
 
 
 h2 {
@@ -69,7 +89,7 @@ select, input {
     gap: 10px;
     max-width: 300px; 
     margin: 0 auto; 
-    margin-bottom: 20px;
+    margin-bottom: -10px;
 }
 
 #address-search-container {
@@ -80,6 +100,10 @@ select, input {
     justify-content: center; 
     gap: 10px;
     flex-wrap: wrap; 
+}
+
+#find-treatment-text {
+    margin-top: 150px;
 }
 
 #addressInput {
@@ -168,10 +192,10 @@ select, input {
 }
 
 #welcome-section img {
-    max-width: 150px;  
+    max-width: 200px;  
     height: auto;
     border-radius: 5px; 
-    padding: 10px;
+    padding: 30px;
 }
 #info-section {
     margin-top: 40px;
@@ -188,16 +212,17 @@ select, input {
 
 }
 
-
-#info-container p {
+#map-right p {
     margin-bottom: 15px;
     line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
 }
-
-
-#info-left p {
+#info-section p {
     margin-bottom: 15px;
     line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
 }
 
 img:hover {
@@ -210,8 +235,10 @@ img:hover {
     padding: 5px 10px;
 }
 
-button:hover {
-    background-color: #62b4e9; 
+#getDirectionsBtn {
+    background-color: #4da8da; 
+    color: #ffffff;
+    padding: 5px 10px;
 }
 
 @media screen and (max-width: 768px) {
