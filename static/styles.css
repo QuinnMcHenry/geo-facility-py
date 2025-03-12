@@ -74,10 +74,26 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 {
+    color: #4da8da;
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
 select, input {
     background-color: #333333; 
     color: #ffffff; 
     border: 1px solid #555555; 
+}
+
+a {
+    color: #4da8da;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 #facility-search-container {
@@ -103,7 +119,7 @@ select, input {
 }
 
 #find-treatment-text {
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 #addressInput {
@@ -224,7 +240,7 @@ select, input {
 }
 #info-section p {
     margin-bottom: 15px;
-    line-height: 1.5;
+    line-height: 2.0;
     font-family: 'Inter', sans-serif;
     font-weight: 100;
 }
@@ -244,6 +260,38 @@ img:hover {
     color: #ffffff;
     padding: 5px 10px;
     margin: 0 auto;
+}
+
+#credit-section {
+    margin-top: 40px;
+    background-color: #1e1e1e; 
+    border-top: 2px solid #ffffff;
+    text-align: left; 
+    padding: 20px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between; /* Pushes left and right sections apart */
+    align-items: flex-start;
+    width: 100%; /* Makes the section take full width */
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+#credit-section-left {
+    margin-left: 20px; /* Small padding from the edge */
+}
+
+#credit-section-right {
+    margin-right: 40px; /* Small padding from the edge */
+    text-align: right; /* Align text to the right */
+}
+
+#credit-section p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
 }
 
 @media screen and (max-width: 768px) {

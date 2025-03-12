@@ -130,6 +130,102 @@ $(document).ready(function () {
         }
     });
 
+    document.addEventListener("DOMContentLoaded", function () {
+    const togglePanel = document.getElementById("toggle-panel");
+    const leftPanel = document.getElementById("left-panel");
+    const shareLocationBtn = document.getElementById("share-location");
+    const closestFacilitiesList = document.getElementById("closest-facilities");
+    const loadingIndicator = document.getElementById("loading");
+
+    let userCoords = null;
+    let facilities = [
+        { name: "Facility A", lat: 37.7749, lon: -122.4194 },
+        { name: "Facility B", lat: 34.0522, lon: -118.2437 },
+        { name: "Facility C", lat: 40.7128, lon: -74.0060 },
+        { name: "Facility D", lat: 41.8781, lon: -87.6298 },
+        { name: "Facility E", lat: 29.7604, lon: -95.3698 }
+    ]; // Example data; replace with actual facilities
+
+    function haversineDistance(lat1, lon1, lat2, lon2) {
+        const toRad = angle => (angle * Math.PI) / 180;
+        const R = 6371; // Radius of Earth in km
+        const dLat = toRad(lat2 - lat1);
+        const dLon = toRad(lon2 - lon1);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+
+    function findClosestFacilities(lat, lon) {
+        loadingIndicator.style.display = "block";
+        setTimeout(() => {
+            const sortedFacilities = facilities
+                .map(facility => ({
+                    ...facility,
+                    distance: haversineDistance(lat, lon, facility.lat, facility.lon)
+                }))
+                .sort((a, b) => a.distance - b.distance)
+                .slice(0, 5);
+
+            closestFacilitiesList.innerHTML = "";
+            sortedFacilities.forEach(facility => {
+                const li = document.createElement("li");
+                li.textContent = `${facility.name} (${facility.distance.toFixed(2)} km)`;
+                closestFacilitiesList.appendChild(li);
+            });
+
+            loadingIndicator.style.display = "none";
+        }, 1500); // Simulate delay
+    }
+
+    shareLocationBtn.addEventListener("click", function () {
+        if (userCoords) {
+            findClosestFacilities(userCoords.lat, userCoords.lon);
+        } else {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        userCoords = {
+                            lat: position.coords.latitude,
+                            lon: position.coords.longitude
+                        };
+                        findClosestFacilities(userCoords.lat, userCoords.lon);
+                    },
+                    error => alert("Location access denied.")
+                );
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    });
+
+    togglePanel.addEventListener("click", function () {
+        leftPanel.classList.toggle("open");
+    });
+
+    document.getElementById("findMe").addEventListener("click", function () {
+        const address = document.getElementById("addressInput").value;
+        if (address) {
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        userCoords = {
+                            lat: parseFloat(data[0].lat),
+                            lon: parseFloat(data[0].lon)
+                        };
+                        findClosestFacilities(userCoords.lat, userCoords.lon);
+                    } else {
+                        alert("Address not found.");
+                    }
+                });
+        }
+    });
+});
+
     document.getElementById("facilityResults").addEventListener("click", function (event) {
         if (event.target.classList.contains("facility-item")) {
             document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "center" });
