@@ -2,15 +2,17 @@
 # coding: utf-8
 
 # In[ ]:
-
-
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DB_USER = "root"
-DB_PASSWORD = "Haloninja11"
-DB_HOST = "127.0.0.1"
-DB_NAME = "nobsv2"
+load_dotenv()
+
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_NAME = os.getenv("DB_NAME")
 
 DATABASE_URL = f"mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@{DB_HOST:3306}/{DB_NAME}"
 
