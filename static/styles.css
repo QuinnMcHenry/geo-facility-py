@@ -20,7 +20,7 @@ h1 {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: shimmer 6s linear infinite;
+    animation: shimmer 5s linear infinite;
   }
   
   @keyframes shimmer {
@@ -108,7 +108,8 @@ a:hover {
 
 
 #facilityResults div:hover {
-    background-color: #555555; 
+    background-color: #4da8da; 
+    cursor: pointer;
 }
 
 #map-section {
@@ -242,25 +243,29 @@ img:hover {
     margin-top: 40px;
     background-color: #1e1e1e; 
     border-top: 2px solid #ffffff;
-    text-align: left; 
     padding: 20px;
     color: #ffffff;
     display: flex;
-    justify-content: space-between; /* Pushes left and right sections apart */
+    justify-content: flex-start; 
     align-items: flex-start;
-    width: 100%; /* Makes the section take full width */
     position: absolute;
     left: 0;
     right: 0;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
 }
 
+#credit-section-left, #credit-section-right {
+    width: 40%;
+}
 #credit-section-left {
     margin-left: 20px;
+    text-align: left;
 }
 
 #credit-section-right {
-    margin-right: 40px; 
-    text-align: right; 
+    margin-left: 20px; 
+    text-align: left; 
 }
 
 #credit-section p {
@@ -268,6 +273,17 @@ img:hover {
     line-height: 1.5;
     font-family: 'Inter', sans-serif;
     font-weight: 100;
+}
+
+#credit-section-image {
+    align-items: center;
+    justify-content: center;
+}
+#credit-section-image img {
+    max-width: 450px;  
+    height: auto;
+    border-radius: 5px; 
+    padding: 30px;
 }
 
 @media screen and (max-width: 768px) {

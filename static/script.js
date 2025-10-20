@@ -31,6 +31,7 @@ $(document).ready(function () {
             navigator.geolocation.getCurrentPosition(function (position) {
                 const userLat = position.coords.latitude;
                 const userLng = position.coords.longitude;
+                
                 window.open(
                     `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${lat},${lng}&travelmode=driving`,
                     "_blank"
